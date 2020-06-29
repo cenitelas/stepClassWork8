@@ -1,4 +1,4 @@
-package kz.education.stepclasswork8
+package kz.education.stepclasswork8.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import kz.education.stepclasswork8.R
 
 class StudentsInformationFragment : Fragment() {
     var imageViewAvatar: ImageView? = null;

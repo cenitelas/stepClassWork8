@@ -1,10 +1,11 @@
-package kz.education.stepclasswork8
+package kz.education.stepclasswork8.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import kz.education.stepclasswork8.R
+import kz.education.stepclasswork8.fragment.StudentsFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,7 +27,8 @@ class MainActivity : AppCompatActivity() {
 
     fun initializeDefaultFragment(){
         if(currentFragment==null){
-            currentFragment = StudentsFragment()
+            currentFragment =
+                StudentsFragment()
 
             fragmentMenager.beginTransaction()
                 .add(R.id.activity_main_relative_layout_fragment_container_students,currentFragment!!)
