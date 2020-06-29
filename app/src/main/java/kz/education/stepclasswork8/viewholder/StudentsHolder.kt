@@ -5,7 +5,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kz.education.stepclasswork8.R
 import kz.education.stepclasswork8.data.Student
-import org.w3c.dom.Text
 
 class StudentsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var textViewName:TextView? = null;

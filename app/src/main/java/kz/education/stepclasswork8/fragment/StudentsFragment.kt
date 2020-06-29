@@ -12,12 +12,13 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_students.*
 import kz.education.stepclasswork8.R
 import kz.education.stepclasswork8.Utils.StudentsUtilsUseCase
+import kz.education.stepclasswork8.Utils.getAll
+import kz.education.stepclasswork8.Utils.getTop
 import kz.education.stepclasswork8.adapter.StudentsAdapter
 import kz.education.stepclasswork8.data.Student
 
 class StudentsFragment : Fragment() {
 
-    var recyclerViewStudents:RecyclerView? = null;
     var studentsAdapter: StudentsAdapter? = null;
     var students:ArrayList<Student> = ArrayList()
 
@@ -39,7 +40,6 @@ class StudentsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var view:View = inflater.inflate(R.layout.fragment_students, container, false)
-        initializeViews(view)
         initializeData()
         initializeLayoutManager()
         initializeAdapter()
@@ -53,16 +53,12 @@ class StudentsFragment : Fragment() {
     }
 
     fun initializeLayoutManager(){
-        recyclerViewStudents?.layoutManager = LinearLayoutManager(context)
-    }
-
-    fun initializeViews(view:View){
-        recyclerViewStudents = view.findViewById(R.id.recyclerview_fragment_students)
+        recyclerview_fragment_students?.layoutManager = LinearLayoutManager(context)
     }
 
     fun initializeAdapter(){
         studentsAdapter = StudentsAdapter(context,students)
-        recyclerViewStudents?.adapter = studentsAdapter;
+        recyclerview_fragment_students?.adapter = studentsAdapter;
     }
 
     fun initializeListeners(){
@@ -88,6 +84,16 @@ class StudentsFragment : Fragment() {
 
         fragment_students_button_clear_search?.setOnClickListener {
             fragment_students_edit_text_search.setText("")
+        }
+
+        fragment_students_button_get_top?.setOnClickListener{
+            students.getTop()
+            initializeAdapter()
+        }
+
+        fragment_students_button_get_all?.setOnClickListener{
+            students.getAll()
+            initializeAdapter()
         }
         fragment_students_edit_text_search?.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(p0: Editable?) {
