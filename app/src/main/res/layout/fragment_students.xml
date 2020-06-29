@@ -1,10 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/fragment_students_edit_text_search"
+            android:layout_width="match_parent"
+            android:hint="search"
+            android:layout_height="50dp"/>
+        <Button
+            android:text="X"
+            android:id="@+id/fragment_students_button_clear_search"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="-45dp"
+            android:layout_height="45dp"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="SORTED:"/>
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/fragment_students_button_sort_by_name"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="name"
+            android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/fragment_students_button_sort_by_mark"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="mark"
+            android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/fragment_students_button_sort_by_group"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="Group"
+            android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/fragment_students_button_sort_by_random"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="random"
+            android:layout_gravity="center"/>
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_fragment_students"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fragment_students_floating_button_add_student"
+        android:src="@drawable/ic_plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-100dp"
+        android:layout_marginRight="30dp"
+        android:layout_gravity="end"
+        />
 </LinearLayout>

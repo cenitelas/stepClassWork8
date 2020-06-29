@@ -17,7 +17,7 @@ class StudentsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     constructor(context: Context?,students:ArrayList<Student>){
         this.context=context;
-        this.students=students
+        this.students= students.filter { student->student.show==true } as ArrayList<Student>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
