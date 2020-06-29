@@ -40,15 +40,16 @@ class StudentsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var view:View = inflater.inflate(R.layout.fragment_students, container, false)
-        initializeData()
-        initializeLayoutManager()
-        initializeAdapter()
+
 
         return view;
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initializeData()
+        initializeLayoutManager()
+        initializeAdapter()
         initializeListeners()
     }
 
