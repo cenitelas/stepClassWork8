@@ -28,11 +28,9 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View {
         super.onCreate(savedInstanceState)
         val bundle = this.arguments
         if (bundle != null) {
-            val name = bundle.getString("NAME")
-            val mark = bundle.getFloat("MARK")
-            val group = bundle.getString("GROUP")
-            val desk = bundle.getString("DESK")
-            students.add(Student(name.toString(),desk.toString(),group.toString(),mark))
+            val student = bundle.getParcelable<Student>("STUDENT")
+            println(student)
+            student?.let { students.add(it) }
         }
 
     }
@@ -133,9 +131,10 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View {
         })
 
         fragment_students_floating_button_add_student?.setOnClickListener {
-            val fragmentManager = fragmentManager?.beginTransaction()
-            fragmentManager?.replace(R.id.activity_main_relative_layout_fragment_container_students,StudentsCreateFragment())
-            fragmentManager?.commit()
+            val fragmentManager = fragmentManager
+            fragmentManager?.beginTransaction()?.add(R.id.activity_main_relative_layout_fragment_container_students,StudentsCreateFragment(),"StudentCreateFragment")
+                ?.addToBackStack(null)
+            ?.commit()
         }
     }
 

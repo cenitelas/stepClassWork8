@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import kz.education.stepclasswork8.R
+import kz.education.stepclasswork8.presentation.fragment.StudentsCreateFragment
 import kz.education.stepclasswork8.presentation.fragment.StudentsFragment
 
 class MainActivity : AppCompatActivity() {
@@ -31,8 +32,7 @@ class MainActivity : AppCompatActivity() {
                 StudentsFragment()
 
             fragmentMenager.beginTransaction()
-                .add(R.id.activity_main_relative_layout_fragment_container_students,currentFragment!!)
-                .addToBackStack(currentFragment!!::class.java.name)
+                .add(R.id.activity_main_relative_layout_fragment_container_students,currentFragment!!,"StudentFragment")
                 .commit()
 
         }

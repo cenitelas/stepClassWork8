@@ -13,5 +13,6 @@ interface StudentsFragmentContract {
     }
     interface Presenter : BaseContract.BasePresenter<View>{
         fun initializeData()
+        fun addStudent(student:Student,students:ArrayList<Student>)
     }
 }
