@@ -1,4 +1,4 @@
-package kz.education.stepclasswork8.Utils
+package kz.education.stepclasswork8.domain
 
 import kz.education.stepclasswork8.data.Student
 

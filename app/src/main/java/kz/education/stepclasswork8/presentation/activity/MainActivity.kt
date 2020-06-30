@@ -1,11 +1,11 @@
-package kz.education.stepclasswork8.activity
+package kz.education.stepclasswork8.presentation.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import kz.education.stepclasswork8.R
-import kz.education.stepclasswork8.fragment.StudentsFragment
+import kz.education.stepclasswork8.presentation.fragment.StudentsFragment
 
 class MainActivity : AppCompatActivity() {
 

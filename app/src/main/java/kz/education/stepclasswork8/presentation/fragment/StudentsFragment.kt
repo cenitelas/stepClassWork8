@@ -1,4 +1,4 @@
-package kz.education.stepclasswork8.fragment
+package kz.education.stepclasswork8.presentation.fragment
 
 import android.os.Bundle
 import android.text.Editable
@@ -8,19 +8,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_students.*
 import kz.education.stepclasswork8.R
-import kz.education.stepclasswork8.Utils.StudentsUtilsUseCase
-import kz.education.stepclasswork8.Utils.getAll
-import kz.education.stepclasswork8.Utils.getTop
-import kz.education.stepclasswork8.adapter.StudentsAdapter
+import kz.education.stepclasswork8.domain.StudentsUtilsUseCase
+import kz.education.stepclasswork8.presentation.Utils.getAll
+import kz.education.stepclasswork8.presentation.Utils.getTop
+import kz.education.stepclasswork8.presentation.adapter.StudentsAdapter
 import kz.education.stepclasswork8.data.Student
+import kz.education.stepclasswork8.presentation.contract.StudentsFragmentContract
+import kz.education.stepclasswork8.presentation.presenters.StudentFragmentPresenter
 
-class StudentsFragment : Fragment() {
+class StudentsFragment : Fragment(), StudentsFragmentContract.View {
 
     var studentsAdapter: StudentsAdapter? = null;
     var students:ArrayList<Student> = ArrayList()
+    lateinit var presenter:StudentFragmentPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,22 +49,37 @@ class StudentsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initializeData()
         initializeLayoutManager()
+        initializePresenter()
         initializeAdapter()
         initializeListeners()
+        presenter.initializeData()
     }
 
-    fun initializeLayoutManager(){
+    override fun initializeLayoutManager(){
         recyclerview_fragment_students?.layoutManager = LinearLayoutManager(context)
     }
 
-    fun initializeAdapter(){
+    override fun initializePresenter() {
+        presenter = StudentFragmentPresenter()
+        presenter.attach(this)
+    }
+
+    override fun initializeAdapter(){
         studentsAdapter = StudentsAdapter(context,students)
         recyclerview_fragment_students?.adapter = studentsAdapter;
     }
 
-    fun initializeListeners(){
+    override fun initiateUpdateAdapter() {
+       studentsAdapter?.notifyDataSetChanged()
+    }
+
+    override fun processData(students: ArrayList<Student>) {
+        this.students.clear()
+        this.students.addAll(students)
+    }
+
+    override fun initializeListeners(){
         fragment_students_button_sort_by_name?.setOnClickListener(View.OnClickListener {
             StudentsUtilsUseCase().sortByName(students)
             initializeAdapter()
@@ -109,24 +126,30 @@ class StudentsFragment : Fragment() {
                 }else{
                     fragment_students_button_clear_search.visibility = View.INVISIBLE
                 }
-                StudentsUtilsUseCase().searchByName(students,p0.toString())
+                StudentsUtilsUseCase()
+                    .searchByName(students,p0.toString())
                 initializeAdapter()
             }
         })
 
         fragment_students_floating_button_add_student?.setOnClickListener {
             val fragmentManager = fragmentManager?.beginTransaction()
-            fragmentManager?.replace(R.id.activity_main_relative_layout_fragment_container_students,StudentsInformationFragment())
+            fragmentManager?.replace(R.id.activity_main_relative_layout_fragment_container_students,StudentsCreateFragment())
             fragmentManager?.commit()
         }
     }
 
-    fun initializeData(){
-        students.add(Student("Pasha","STudent 1","GROUP 1",5F))
-        students.add(Student("Sasha","STudent 2","GROUP 1",4F))
-        students.add(Student("Kesha","STudent 3","GROUP 2",5F))
-        students.add(Student("Dasha","STudent 4","GROUP 1",3F))
-        students.add(Student("Masha","STudent 5","GROUP 2",2F))
-        students.sortBy{e->e.group}
+
+
+    override fun initializeArguments() {
+        TODO("Not yet implemented")
     }
+
+    override fun initializeDependencies() {
+        TODO("Not yet implemented")
+    }
+    override fun initializeViews() {
+        TODO("Not yet implemented")
+    }
+
 }

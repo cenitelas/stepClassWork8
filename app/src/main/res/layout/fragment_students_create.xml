@@ -11,46 +11,46 @@
         android:text="ADD STUDENT"
         android:textAlignment="center"/>
     <EditText
-        android:id="@+id/fragment_students_information_edit_text_fio"
+        android:id="@+id/fragment_students_create_edit_text_fio"
         android:layout_width="200dp"
         android:hint="@string/viewholder_students_text_view_name"
         android:layout_height="45dp"/>
 
     <EditText
-        android:id="@+id/fragment_students_information_edit_text_group"
+        android:id="@+id/fragment_students_create_edit_text_group"
         android:layout_width="200dp"
         android:hint="@string/viewholder_students_text_view_group"
         android:layout_height="45dp"/>
 
     <EditText
-        android:id="@+id/fragment_students_information_edit_text_mark"
+        android:id="@+id/fragment_students_create_edit_text_mark"
         android:layout_width="200dp"
         android:inputType="number"
         android:hint="@string/viewholder_students_text_view_mark"
         android:layout_height="45dp"/>
 
     <EditText
-        android:id="@+id/fragment_students_information_edit_text_detail"
+        android:id="@+id/fragment_students_create_edit_text_detail"
         android:layout_width="200dp"
         android:hint="@string/viewholder_students_text_view_description"
         android:layout_height="45dp"/>
 
     <TextView
-        android:id="@+id/fragment_students_information_text_view_error"
+        android:id="@+id/fragment_students_create_text_view_error"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:textColor="@color/red"/>
 
     <Button
-        android:id="@+id/fragment_students_information_button_add"
+        android:id="@+id/fragment_students_create_button_add"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:text="add"/>
 
 
     <Button
-        android:id="@+id/fragment_students_information_button_cancel"
+        android:id="@+id/fragment_students_create_button_cancel"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:text="cancel"/>

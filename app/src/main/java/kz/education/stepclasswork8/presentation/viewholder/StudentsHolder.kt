@@ -1,4 +1,4 @@
-package kz.education.stepclasswork8.viewholder
+package kz.education.stepclasswork8.presentation.viewholder
 
 import android.view.View
 import android.widget.TextView

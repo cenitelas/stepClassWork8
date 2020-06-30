@@ -1,4 +1,4 @@
-package kz.education.stepclasswork8.Utils
+package kz.education.stepclasswork8.presentation.Utils
 
 import kz.education.stepclasswork8.data.Student
 
