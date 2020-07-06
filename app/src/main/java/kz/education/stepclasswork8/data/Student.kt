@@ -9,5 +9,6 @@ data class Student (
     var description: String,
     var group : String,
     var mark : Float,
+    var avatar:String,
     var show :Boolean
 ): Parcelable

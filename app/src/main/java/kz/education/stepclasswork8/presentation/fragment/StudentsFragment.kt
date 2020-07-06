@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_students.*
+import kotlinx.android.synthetic.main.viewholder_student.*
 import kz.education.stepclasswork8.R
 import kz.education.stepclasswork8.domain.StudentsUtilsUseCase
 import kz.education.stepclasswork8.presentation.Utils.getAll
@@ -29,7 +30,6 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View {
         val bundle = this.arguments
         if (bundle != null) {
             val student = bundle.getParcelable<Student>("STUDENT")
-            println(student)
             student?.let { students.add(it) }
         }
 
@@ -137,7 +137,6 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View {
             ?.commit()
         }
     }
-
 
 
     override fun initializeArguments() {

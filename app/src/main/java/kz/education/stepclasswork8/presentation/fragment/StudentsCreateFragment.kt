@@ -61,6 +61,7 @@ class StudentsCreateFragment : Fragment(), StudentsFragmentCreateContract.View {
                         fragment_students_create_edit_text_detail.text.toString(),
                         fragment_students_create_edit_text_group.text.toString(),
                         fragment_students_create_edit_text_mark.text.toString().toFloat(),
+                        "",
                         true
                     )
                     arguments.putParcelable("STUDENT",student)
