@@ -42,8 +42,6 @@ class StudentDetailFragment : Fragment() {
         }
 
         fragment_students_detail_text_view_first_name?.text = "${getText(R.string.viewholder_students_text_view_name)}: ${student?.name}"
-        fragment_students_detail_text_view_group?.text = "${getText(R.string.viewholder_students_text_view_group)}: ${student?.group}"
-        fragment_students_detail_text_view_mark?.text = "${getText(R.string.viewholder_students_text_view_mark)}: ${student?.mark}"
         fragment_students_detail_text_view_detail?.text = "${getText(R.string.viewholder_students_text_view_description)}: ${student?.description}"
     }
 }
