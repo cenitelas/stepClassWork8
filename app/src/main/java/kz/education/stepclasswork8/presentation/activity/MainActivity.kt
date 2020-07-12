@@ -1,5 +1,6 @@
 package kz.education.stepclasswork8.presentation.activity
 
+import NotesFragment
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -29,10 +30,10 @@ class MainActivity : AppCompatActivity() {
     fun initializeDefaultFragment(){
         if(currentFragment==null){
             currentFragment =
-                StudentsFragment()
+                NotesFragment()
 
             fragmentMenager.beginTransaction()
-                .add(R.id.activity_main_relative_layout_fragment_container_students,currentFragment!!,"StudentFragment")
+                .add(R.id.activity_main_relative_layout_fragment_container_students,currentFragment!!,"NotesFragment")
                 .commit()
 
         }

@@ -7,4 +7,8 @@
     <string name="viewholder_students_text_view_description">Описание</string>
     <string name="viewholder_students_text_view_mark">Оценка</string>
     <string name="viewholder_students_text_view_group">Группа</string>
+
+    <string name="viewholder_notes_text_view_date">Дата</string>
+    <string name="viewholder_notes_text_view_name">Заголовок</string>
+    <string name="viewholder_notes_text_view_text">Описание </string>
 </resources>
