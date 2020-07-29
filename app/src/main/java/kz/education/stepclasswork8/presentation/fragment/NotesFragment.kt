@@ -27,6 +27,7 @@ class NotesFragment : Fragment(), NotesFragmentContract.View {
         }
 
     }
+   
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
