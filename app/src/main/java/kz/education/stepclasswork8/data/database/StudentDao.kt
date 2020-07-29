@@ -6,10 +6,10 @@ import kz.education.stepclasswork8.data.database.entities.StudentEntity
 @Dao
 interface StudentDao {
     @Query("SELECT * FROM StudentEntity WHERE id == :id")
-    fun getCityDetailById(id: Int): StudentEntity
+    fun getById(id: Int): StudentEntity
 
     @Query("SELECT * FROM StudentEntity")
-    fun getCitiesDetails(): List<StudentEntity>
+    fun getList(): List<StudentEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(entity: StudentEntity)

@@ -8,5 +8,10 @@ import androidx.room.PrimaryKey
 data class StudentEntity(
     @PrimaryKey
     var id:Int,
-    var data:String
+    var name:String,
+    var description: String,
+    var group : String,
+    var mark : Float,
+    var avatar:String,
+    var show :Boolean
 )
