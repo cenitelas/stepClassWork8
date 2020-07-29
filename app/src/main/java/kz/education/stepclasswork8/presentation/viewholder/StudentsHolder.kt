@@ -6,7 +6,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kz.education.stepclasswork8.R
 import kz.education.stepclasswork8.data.Student
+import kz.education.stepclasswork8.presentation.adapter.StudentsAdapter
 import kz.education.stepclasswork8.presentation.fragment.StudentsCreateFragment
+import java.text.ParsePosition
 
 class StudentsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var textViewName:TextView? = null;
@@ -27,10 +29,11 @@ class StudentsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         layout = itemView.findViewById(R.id.viewholder_student_layout)
     }
 
-    fun initiateBind(student: Student){
+    fun initiateBind(student: Student, listener: StudentsAdapter.Listener, position: Int){
         textViewName?.setText(student.name)
         textViewDescription?.setText(student.description)
         textViewGroup?.setText(student.group)
         textViewMark?.setText(student.mark.toString())
+        itemView.setOnClickListener{ listener.onItemClick(student) }
     }
 }

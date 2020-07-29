@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_students.*
 import kotlinx.android.synthetic.main.viewholder_student.*
 import kz.education.stepclasswork8.R
@@ -64,8 +65,8 @@ class StudentsFragment : Fragment(), StudentsFragmentContract.View {
     }
 
     override fun initializeAdapter(){
-        studentsAdapter = StudentsAdapter(context,students)
-        recyclerview_fragment_students?.adapter = studentsAdapter;
+        val layoutManager : RecyclerView.LayoutManager = LinearLayoutManager(view!!.context)
+        recyclerview_fragment_students.layoutManager = layoutManager
     }
 
     override fun initiateUpdateAdapter() {
